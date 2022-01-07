@@ -1,0 +1,119 @@
+\documentclass[a0paper,landscape,innermargin=3cm]{tikzposter}
+%\documentclass[25pt, margin=-2.5cm, innermargin=5cm]{tikzposter}
+%\geometry{paperwidth=840mm,paperheight=892mm}
+
+\makeatletter
+\setlength{\TP@visibletextwidth}{\textwidth-2\TP@innermargin}
+\setlength{\TP@visibletextheight}{\textheight-2\TP@innermargin}
+\makeatother
+
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{fontspec}
+\usepackage{lmodern}
+\usepackage{pifont}
+\usepackage[none]{hyphenat}
+\usepackage[
+	%protrusion,
+	%expansion,
+]{microtype}
+\usepackage{adjustbox}
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{wrapfig}
+\usepackage{csquotes}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage[xspace]{ellipsis}
+
+% Do not prefix captions of figures
+\usepackage[labelformat=empty]{caption}
+
+\hypersetup{
+	pdftitle={Wie nutze ich LaTeX für mein Paper?},
+	pdfauthor={Andrej Utz, Benno Bielmeier},
+	pdflang={de-DE},
+	pdfsubject={Poster},
+	pdfkeywords={LaTeX, Paper, Wisschenschaftliches Präsentieren},
+	hidelinks,
+}
+
+\setminted{frame=lines,framesep=0.5em}
+
+\usepackage[
+	backend=biber,
+	style=numeric,
+	url=false,
+]{biblatex}
+\bibliography{bibliography}
+\renewcommand{\section}[2]{}
+
+% Choose LAYOUT:  Default, Basic, Rays, Simple, Envelope, Wave, Board, Autumn, Desert,
+\usetheme{Basic}
+%\usecolorstyle[colorPalette=BlueGrayOrange, colorThree=gray, colorOne=MidnightBlue]{Germany}
+\usecolorstyle[colorPalette=Default, colorOne=white]{Australia}
+
+
+\definecolor{fakim}{RGB}{22,65,148} % #164194 #004094
+\definecolor{hsgrau}{RGB}{157,157,156}
+\colorlet{framecolor}{fakim}
+\colorlet{blocktitlebgcolor}{white}
+\colorlet{blocktitlefgcolor}{fakim}
+
+\newenvironment{citemize}{\begin{list}{{
+	%\fontspec{Arial Unicode MS}□
+}}%
+	{\setlength{\itemindent}{-0.6em}%
+	\setlength{\leftmargin}{2.0em}
+	\setlength{\labelsep}{0.3em}
+	\setlength{\itemsep}{0pt}
+	\setlength{\topsep}{0pt}}}{\end{list}}
+
+\tikzposterlatexaffectionproofoff
+
+% {\fontspec{Arial Unicode MS}♢}
+\title{Wie nutze ich \LaTeX{} für mein Paper?}
+\author{Andrej Utz und Benno Bielmeier}
+%\institute{\Large\texttt{wolfgang.mauerer@oth-regensburg.de}}
+%\institute{}
+\titlegraphic{\includegraphics[width=0.9\linewidth]{img/OTH-LFD-logo.eps}}
+\settitle{
+	\vbox{
+		\begin{minipage}{0.2\linewidth}
+			\@titlegraphic
+		\end{minipage}
+		\begin{minipage}{0.595\linewidth}
+			\centering 
+			\color{titlefgcolor}
+			{\bfseries \Huge \textsf{\@title} \par}
+			\vspace*{1em}
+			{\huge \textsf{Andrej Utz} ~-~ \texttt{andrej.utz@st.othr.de} \par}
+			{\huge \textsf{Benno Bielmeier} ~-~ \texttt{benno.bielmeier@st.othr.de} \par}
+		\end{minipage}
+		\begin{minipage}{0.2\linewidth}
+			\raggedleft
+			\includegraphics[width=0.95\linewidth]{img/MAPR-by-logo.png}
+		\end{minipage}	
+	}
+}
+%\settitle{}
+\renewcommand{\familydefault}{\sfdefault}
+\begin{document}
+\nocite{latex2015,Schlosser2014,ITUG2003,Lamport1994,Talbot2012}
+%Default, Basic, Envelope, Wave, VerticalShading, Filled, Empty
+\usetitlestyle{Default}
+%\usetitlestyle{Empty}
+\maketitle[width=0.95\linewidth]
+\begin{columns}[t]
+	\column{0.33}
+	\block{\LaTeX{} - Ein Textsatzsystem}{\input{latex-about.tex}}
+	\block{Die Werkzeuge und das Setzen}{\input{latex-tools.tex}}
+	\block{\LaTeX{} für Paper}{\input{latex-paper.tex}}
+	\column{0.33}
+	\block{Aufbau eines \LaTeX{}-Dokuments}{\input{latex-template.tex}}
+	\column{0.33}
+	\block{Erweiterungen}{\input{latex-ecosys.tex}}
+	\block{Literaturverzeichnis mit Bib\LaTeX{}}{\input{latex-bib.tex}}
+	\block{Referenzen}{\input{sources.tex}}
+\end{columns}
+\end{document}

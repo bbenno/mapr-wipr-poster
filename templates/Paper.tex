@@ -1,0 +1,37 @@
+% Diese Zeile ist ein Kommentar!
+\documentclass[a4paper, 12pt]{scrarticle} % Dokumenttyp
+% Angabe der genutzten Pakete
+\usepackage[utf8]{inputenc} % Unterstützung für UTF-8
+\usepackage[ngerman]{babel} % Spracheigenheiten
+\usepackage{csquotes} % autom. Anführungzeichen
+\usepackage[backend=biber, …]{biblatex}  % lit. Verzeichnis 
+\usepackage{amsmath,amssymb} % math. Formelzeichen
+\bibliography{Quellen.bib} % Angabe des Quellverzeichnisses
+
+% Metadaten
+\title{Einfache Vorlage eines Papers}
+\author{Vorname Nachnahme, {et alias}}
+\date{\today}
+
+% Hauptteil
+\begin{document}
+\maketitle % Deckblatt oder Titel-Abschnitt
+\tableofcontents % Inhaltsverzeichnis
+
+\section{Abschnitt Überschrift}
+Nachfolgend eine unsortierte Aufzählung wichtiger Strukturelemente in \LaTeX{}.
+\begin{itemize}
+	\item Zitate können mittels~\cite{bib-ref:1} referenziert werden.
+	\item Text kann \textbf{fettgedruckt} oder \textit{kursiv} hervorgehoben werden, wobei eine \emph{Betonung} in der Regel reicht.
+	\item (Sprachspezifische) \enquote{Anführungzeichen} können nach Einbindung des Pakets \texttt{csquotes} genutzt werden.
+\end{itemize}
+\newpage % Seitenumbruch
+
+\subsection{Unterüberschrift}
+Einfache Formeln wie $a = 5$, \(b = x^2\) und komplexere mittels
+\begin{align*}
+	\hat{\mathcal{L}}_2 &= \lim_{x \to 0} \sum^{\infty}_{k=1} \| \dot{\Theta}^{(k)} \|_x
+\end{align*}
+
+\printbibliography % Literaturverzeichnis
+\end{document}
