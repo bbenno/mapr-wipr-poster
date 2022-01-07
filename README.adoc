@@ -1,0 +1,2 @@
+= Wissenschaftliche Präsentieren: Wie verwende ich LaTeX für mein Paper?
+Andrej Utz <andrej.utz@st.othr.de>, Benno Bielmeier <benno.bielmeier@st.othr.de>
